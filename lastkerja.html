@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borang Pendaftaran</title>
+</head>
+<body>
+    <h2>Borang Pendaftaran</h2>
+
+    <form action="https://dev.fare4z.com" method="POST"
+    enctype="multipart/form-data" name="borang">
+    <p>
+        <label for="name">Nama Peserta:</label>
+        <input type="text" id="nama" name="nama" placeholder="Enter your name" required>
+    </p>
+    
+        <label for="nombor kad pengenalan">Nombor Kad Pengenalan:</label>
+        <input type="nombor kad pengenalan" placeholder="Please Enter Your ID" required>
+    
+    <p>
+        <label for="tarikh lahir">Tarikh Lahir:</label>
+        <input type="date" name="date" required>
+    </p>
+    <p>
+        <label for="umur">Umur:</label>
+        <input type="number" name="age" placeholder="Your age" required>
+    </p>
+    <p>
+        <label for="jantina">Jantina:</label>
+        <input type="radio" name="gender" value="Lelaki">Lelaki
+        <input type="radio" name="gender" value="Perempuan">Perempuan
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email Addres" required>
+    </p>
+    <p>
+        <label for="phone">Nombor Telefon:</label>
+        <input type="test" value="01" required>
+    </p>
+    <p>
+        <label for="alamat">Alamat Rumah:</label>
+        <textarea id="alamat" name="alamat" rows="4" cols="30"></textarea>
+    </p>
+    <p>
+        <label for="status">Status Pelajar:</label>
+        <select id="status" name="status">
+            <option value="active">Active</option>
+            <option value="not active">Not Active</option>
+        </select>
+    </p>
+    <p>
+        <label for="kemahiran">Kemahiran:</label><br>
+        <input type="checkbox" value="HTML" name="Kemahiran[]">HTML
+        <input type="checkbox" value="CSS" name="Kemahiran[]">CSS
+        <input type="checkbox" value="PHP" name="Kemahiran[]">PHP
+    </p>
+    <p>
+        <label for="Profile Photo">Gambar Profile</label>
+        <input type="file" name="uploadfile">
+    </p>
+    <P>
+        <label for="katalaluan">Kata Laluan:</label>
+        <input type="password" name="katalaluan" required>
+    </P>
+
+        <p>
+            <button type="submit">Hantar</button>
+            <button type="reset">Kosongkan</button>
+        </p>
+
+    </form>
+    
+</body>
+</html>

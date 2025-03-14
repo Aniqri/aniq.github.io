@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+</head>
+<body>
+<button onclick="alert('My name is Aniq!')">Click Me</button>
+
+<br>
+
+<button onclick="register()">
+Register Here !
+</button>
+    <script>
+        alert("Hi, Welcome to JavaScript World!");
+        console.log("try")
+
+        var a = 1;
+        var b = 2;
+        console.log("Total :" + a+b)
+
+        function exampleScope() {
+            var a = 5; // 'a' is function-scoped
+            let b = 10; // 'b' is block-scoped
+
+            if (true) {
+                var a = 20; // This reassigns the 'a' variable declared above
+                let b = 30; // This creates a new 'b' variable with block scope
+            }
+
+            console.log(a); // Outputs 20
+            console.log(b); // Outputs 10
+            alert("a : " + a);
+            alert("b : " + b);
+        }
+
+        function register() {
+            //Ask student name
+            let studentName = prompt("Please Enter Your Name");
+            let studentAge = prompt("Enter Your Age");
+            let studentPlaceOfBirth = prompt("Place of Birth");
+            let studentNric = prompt("Enter Your NRIC");
+            let studentDepart = prompt("Please Enter Your Department");
+            let studentAdress = prompt("Enter Your Address");
+
+            if(studentName) {
+                alert("Welcome to the class " + studentName + " ! \n Age : " + studentAge + " \n Place Of Birth : " + studentPlaceOfBirth + " \n NRIC : " + studentNric + " \n Department : " + studentDepart + " \n Address : " + studentAdress);
+
+            } else {
+                alert("Please Enter Your Name Before Proceed");
+            }
+            
+
+        }
+
+    </script>
+</body>
+</html>

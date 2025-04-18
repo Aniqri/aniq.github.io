@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Array</title>
+</head>
+<body>
+    <h1>Food Ordering System</h1>
+
+    <button id="btnMenu">Add New Menu</button>
+    <hr>
+    <h2>Menu</h2>
+
+    <form id="menuForm"></form>
+
+    <button onclick="orderFood()">Order Now!</button>
+
+    <br>
+    <div id="info"></div>
+    <div id="priceInfo"></div>
+
+    <h3>Payment Method</h3>
+    <select id="paymentMethod()" onchange="payNow()">
+    <option value="creditCard">Credit Card</option>
+    <option value="debitCard">Debit Card</option>
+    <option value="cash">Cash</option>
+    </select>
+
+    <script>
+        const menu = [
+            {name : "Nasi Ayam", price : 8.00},
+            {name : "Mee Goreng", price : 5.00},
+            {name : "Nasi Lemak", price : 1.00},
+        ];
+
+        const form = document.getElementById('menuForm');
+
+        for (let i=0 ; i < menu.length ; i++) {
+            const item = menu[i];
+            const label = document.createElement("label");
+            const checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+            checkbox.name = "menuItem";
+            checkbox.value = item.name;
+            checkbox.id = "item" + i;
+
+            label.htmlFor = checkbox.id;
+            label.innerHTML = item.name + "RM" + item.price.toFixed(2);
+            label.prepend(checkbox);
+
+            const br = document.createElement("br");
+            form.appendChild(label);
+            form.appendChild(br);
+        }
+
+        let btnMenu = document.getElementById('btnMenu')
+        btnMenu.onclick = function (){
+            let namaMenu = prompt("Please Enter new Menu");
+            let hargaMenu = prompt("Please Enter the price");
+
+            menu.push( {name : namaMenu, price: parseFloat(hargaMenu)});
+
+            console.log(menu);
+
+            const label = document.createElement("label");
+            const checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+            checkbox.name = "menuItem";
+            checkbox.value = namaMenu;
+            checkbox.id = "item" + (menu.length - 1);
+
+            label.htmlFor = checkbox.id;
+            label.innerHTML = `${namaMenu} - RM${parseFloat(hargaMenu).toFixed(2)}`;
+            label.prepend(checkbox);
+
+            const br = document.createElement("br");
+            form.appendChild(label);
+            form.appendChild(br);
+        }
+    function orderFood() {
+    let checked_menu = document.querySelectorAll('input[type=checkbox]:checked')
+
+    let info = document.getElementById('info');
+    let priceInfo = document.getElementById('priceInfo');
+
+    let checked_values = [];
+    let price = 0;
+
+    checked_menu.forEach(function (checkbox) {
+        let index = parseInt(checkbox.id.replace("item",""));
+        let item = menu[index];
+        price += item.price;
+ 
+        checked_values.push(checkbox.value);
+    } )
+
+    info.innerText = checked_values.join(', ');
+    priceInfo.innerHTML = "<strong>Total Price : RM " + price + "\n </strong>";
+
+    let table = '<table border=1 width=80% ><tr><th>Menu Name</th><th>Price</th></tr> '
+        checked_menu.forEach(function (checkbox) {
+        let index = parseInt(checkbox.id.replace("item",""));
+        let item = menu[index];
+
+        table +="<tr><td>"
+            + item.name + "</td><td>"
+            + "RM" + item.price + "</td><tr>" ;
+    })
+
+    table += "</table>";
+    info.innerHTML += table;
+
+}
+    </script>
+</body>
+</html>

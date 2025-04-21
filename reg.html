@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7f8;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      margin-top: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    #courseMessage,
+    #greeting {
+      margin-top: 15px;
+      font-style: italic;
+      color: #007b83;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4a90e2;
+      color: white;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #357ab8;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form id="registrationForm">
+    <h2>Student Registration Form</h2>
+
+    <label>Full Name:
+      <input type="text" id="fullName" required>
+    </label>
+
+    <label>IC Number (12 digits):
+      <input type="text" id="icNumber" maxlength="12" required>
+    </label>
+
+    <label>Gender:
+      <input type="text" id="gender" readonly>
+    </label>
+
+    <label>Select Course:
+      <select id="course" required>
+        <option value="">-- Select Course --</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Mobile App">Mobile App</option>
+        <option value="Database">Database</option>
+        <option value="Cybersecurity">Cybersecurity</option>
+      </select>
+    </label>
+
+    <label>
+      <input type="checkbox" id="terms"> I agree to the Terms and Conditions
+    </label>
+
+    <p id="greeting"></p>
+    <p id="courseMessage"></p>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
